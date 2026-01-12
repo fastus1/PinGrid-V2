@@ -17,7 +17,17 @@ export const useAuthStore = create(
         set({ loading: true, error: null });
         try {
           const response = await authService.register(userData);
+
+          // Check if response has the expected structure
+          if (!response || !response.data) {
+            throw new Error('Invalid response from server. Please check your API configuration.');
+          }
+
           const { user, token } = response.data;
+
+          if (!user || !token) {
+            throw new Error('Server response missing user or token data');
+          }
 
           set({
             user,
@@ -29,7 +39,7 @@ export const useAuthStore = create(
 
           return { success: true };
         } catch (error) {
-          const errorMessage = error.response?.data?.error || error.message;
+          const errorMessage = error.response?.data?.error || error.message || 'Registration failed';
           set({
             error: errorMessage,
             loading: false
@@ -42,7 +52,17 @@ export const useAuthStore = create(
         set({ loading: true, error: null });
         try {
           const response = await authService.login(credentials);
+
+          // Check if response has the expected structure
+          if (!response || !response.data) {
+            throw new Error('Invalid response from server. Please check your API configuration.');
+          }
+
           const { user, token } = response.data;
+
+          if (!user || !token) {
+            throw new Error('Server response missing user or token data');
+          }
 
           set({
             user,
@@ -54,7 +74,7 @@ export const useAuthStore = create(
 
           return { success: true };
         } catch (error) {
-          const errorMessage = error.response?.data?.error || error.message;
+          const errorMessage = error.response?.data?.error || error.message || 'Login failed';
           set({
             error: errorMessage,
             loading: false

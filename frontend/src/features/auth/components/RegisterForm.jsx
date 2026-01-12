@@ -23,9 +23,10 @@ export default function RegisterForm() {
       return;
     }
 
-    // Validate password length
-    if (formData.password.length < 6) {
-      alert('Password must be at least 6 characters long');
+    // Validate password strength (must match backend requirements)
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(formData.password)) {
+      alert('Password must be at least 8 characters with at least one uppercase letter, one lowercase letter, and one number');
       return;
     }
 
@@ -117,7 +118,7 @@ export default function RegisterForm() {
               value={formData.password}
               onChange={handleChange}
               required
-              placeholder="Min 6 characters"
+              placeholder="Min 8 chars, 1 uppercase, 1 lowercase, 1 number"
               style={styles.input}
               disabled={loading}
             />
