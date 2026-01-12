@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
+    "migrate": "node run-migrations.js",
     "test": "echo \"Tests will be added later\" && exit 0",
     "lint": "eslint src/",
     "lint:fix": "eslint src/ --fix",

@@ -151,10 +151,48 @@ FRONTEND_URL=https://votre-frontend.coolify.app
 
 Exemples valides: `Password123`, `MyApp2024`, `Secure1Pass`
 
+## 🗄️ Initialisation de la Base de Données
+
+**IMPORTANT**: Avant de pouvoir créer un compte, vous devez exécuter les migrations SQL pour créer les tables.
+
+### Méthode 1: Script automatique (Recommandé)
+
+Sur votre serveur Coolify ou en local avec accès à la base de données:
+
+```bash
+cd backend
+npm run migrate
+```
+
+Ce script exécutera automatiquement toutes les migrations dans l'ordre.
+
+### Méthode 2: Exécution manuelle
+
+Connectez-vous à votre PostgreSQL sur Coolify et exécutez les fichiers SQL dans l'ordre:
+
+1. `backend/src/shared/migrations/001_create_users.sql`
+2. `backend/src/shared/migrations/002_create_pages.sql`
+3. `backend/src/shared/migrations/003_create_sections.sql`
+4. `backend/src/shared/migrations/004_create_groups.sql`
+5. `backend/src/shared/migrations/005_create_bookmarks.sql`
+6. `backend/src/shared/migrations/006_create_icons_cache.sql`
+7. `backend/src/shared/migrations/007_add_column_to_bookmarks.sql`
+8. `backend/src/shared/migrations/008_add_group_width.sql`
+
+### Vérifier que les tables existent
+
+```sql
+SELECT table_name FROM information_schema.tables
+WHERE table_schema = 'public';
+```
+
+Vous devriez voir: `users`, `pages`, `sections`, `groups`, `bookmarks`, `icons_cache`.
+
 ## 📝 Checklist de Déploiement
 
 - [ ] PostgreSQL démarré et accessible
 - [ ] Redis démarré et accessible
+- [ ] **Migrations SQL exécutées** (`npm run migrate`)
 - [ ] Backend déployé avec toutes les variables d'environnement
 - [ ] Backend accessible via son URL (test `/health`)
 - [ ] Frontend déployé avec `VITE_API_URL` configuré
