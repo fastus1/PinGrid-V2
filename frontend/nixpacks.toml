@@ -1,0 +1,17 @@
+# Nixpacks configuration for PinGrid Frontend
+# Deploy this as a separate service in Coolify with base directory: /frontend
+
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = ["npm install"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npx serve dist -s -l 3000"
+
+[variables]
+NODE_ENV = "production"
