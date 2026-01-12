@@ -2,21 +2,40 @@ import axios from 'axios';
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
+// Log API URL for debugging
+console.log('🔧 API URL configured:', API_URL);
+
 const authService = {
   /**
    * Register a new user
    */
   async register(userData) {
-    const response = await axios.post(`${API_URL}/api/auth/register`, userData);
-    return response.data;
+    console.log('📤 Registering user to:', `${API_URL}/api/auth/register`);
+    try {
+      const response = await axios.post(`${API_URL}/api/auth/register`, userData);
+      console.log('✅ Registration response:', response);
+      return response.data;
+    } catch (error) {
+      console.error('❌ Registration error:', error);
+      console.error('Error response:', error.response);
+      throw error;
+    }
   },
 
   /**
    * Login user
    */
   async login(credentials) {
-    const response = await axios.post(`${API_URL}/api/auth/login`, credentials);
-    return response.data;
+    console.log('📤 Logging in to:', `${API_URL}/api/auth/login`);
+    try {
+      const response = await axios.post(`${API_URL}/api/auth/login`, credentials);
+      console.log('✅ Login response:', response);
+      return response.data;
+    } catch (error) {
+      console.error('❌ Login error:', error);
+      console.error('Error response:', error.response);
+      throw error;
+    }
   },
 
   /**
