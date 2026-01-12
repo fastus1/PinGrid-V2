@@ -13,7 +13,7 @@ const { Pool } = require('pg');
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+  ssl: false // Coolify internal PostgreSQL doesn't use SSL
 });
 
 // Migration files directory
