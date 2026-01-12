@@ -1,0 +1,67 @@
+/* ============================================
+   THEME TRANSITIONS - Smooth theme switching
+   ============================================ */
+
+/* Smooth transitions for theme changes on all elements */
+* {
+  transition: background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    backdrop-filter 0.3s ease;
+}
+
+/* Faster transitions for interactive elements (hover/focus) */
+*:hover,
+*:focus,
+input,
+textarea,
+button {
+  transition-duration: 0.15s;
+}
+
+/* No transition for elements being dragged */
+[draggable="true"]:active {
+  transition: none;
+}
+
+/* ============================================
+   BUTTON HOVER STYLES
+   ============================================ */
+
+/* All action buttons (add, edit, delete) get subtle hover effect */
+button:hover {
+  opacity: 0.9;
+}
+
+/* Action button hover - brighten on hover */
+/* Note: Specific hover colors are now handled by theme system in each component */
+.action-btn:hover,
+button[title]:hover {
+  opacity: 0.9;
+}
+
+/* Ghost button hover - subtle blue highlight */
+button:not([disabled]):hover {
+  transition: all 0.15s ease;
+}
+
+/* ============================================
+   MODAL INPUT PROTECTION
+   ============================================ */
+
+/* Prevent drag behavior on input fields - allows text selection */
+input,
+textarea,
+select {
+  -webkit-user-drag: none;
+  user-select: text !important;
+  cursor: text;
+}
+
+/* Ensure modal forms are not draggable */
+form,
+.modal,
+[role="dialog"] {
+  -webkit-user-drag: none;
+}
