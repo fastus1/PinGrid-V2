@@ -11,7 +11,7 @@ cmds = ["npm install"]
 cmds = ["npm run build"]
 
 [start]
-cmd = "npx serve dist -s -l 3000"
+cmd = "node server.js"
 
 [variables]
 NODE_ENV = "production"
