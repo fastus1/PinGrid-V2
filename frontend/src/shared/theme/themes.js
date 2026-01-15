@@ -358,9 +358,9 @@ export const ALL_THEMES = [
 ];
 
 /**
- * Thème par défaut (Cyberpunk Neon - priorité)
+ * Thème par défaut (Light Classic)
  */
-export const DEFAULT_THEME_ID = 'cyberpunk-neon';
+export const DEFAULT_THEME_ID = 'light-classic';
 
 /**
  * Récupère un thème par son ID
