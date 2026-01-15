@@ -10,11 +10,20 @@ const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
 
-// Database connection
-const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: false // Coolify internal PostgreSQL doesn't use SSL
-});
+// Database connection - supports both DATABASE_URL and individual variables
+const pool = process.env.DATABASE_URL
+  ? new Pool({
+      connectionString: process.env.DATABASE_URL,
+      ssl: false
+    })
+  : new Pool({
+      host: process.env.DB_HOST || 'localhost',
+      port: process.env.DB_PORT || 5432,
+      database: process.env.DB_NAME || 'pingrid',
+      user: process.env.DB_USER || 'postgres',
+      password: process.env.DB_PASSWORD || 'postgres',
+      ssl: false
+    });
 
 // Migration files directory
 const migrationsDir = path.join(__dirname, 'src', 'shared', 'migrations');
