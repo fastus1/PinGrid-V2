@@ -68,7 +68,12 @@
       "Bash(ping:*)",
       "Bash(ls -la \"C:\\\\App - Vault - Yannick\\\\PinGrid V2.0\\\\frontend\\\\src\\\\features\\\\bookmarks\\\\components\"\" | grep -i \"EditBookmarkModal \")",
       "Bash(dir /b:*)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(npm run build:*)",
+      "Bash(timeout:*)"
     ]
   }
 }
