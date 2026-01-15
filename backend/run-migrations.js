@@ -10,20 +10,43 @@ const fs = require('fs');
 const path = require('path');
 const { Pool } = require('pg');
 
-// Database connection - supports both DATABASE_URL and individual variables
-const pool = process.env.DATABASE_URL
+// Debug: Log environment variables (hide sensitive values)
+console.log('🔍 Environment Variables Check:');
+console.log('   DB_HOST:', process.env.DB_HOST || '(not set)');
+console.log('   DB_PORT:', process.env.DB_PORT || '(not set)');
+console.log('   DB_NAME:', process.env.DB_NAME || '(not set)');
+console.log('   DB_USER:', process.env.DB_USER || '(not set)');
+console.log('   DB_PASSWORD:', process.env.DB_PASSWORD ? '✅ Set' : '❌ Not set');
+console.log('   DATABASE_URL:', process.env.DATABASE_URL ? '✅ Set' : '❌ Not set');
+
+// Database connection - prioritize individual variables (DB_*) over DATABASE_URL
+// This is more reliable for Coolify deployments
+const useIndividualVars = process.env.DB_HOST && process.env.DB_PASSWORD;
+
+const pool = useIndividualVars
   ? new Pool({
-      connectionString: process.env.DATABASE_URL,
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT) || 5432,
+      database: process.env.DB_NAME || 'postgres',
+      user: process.env.DB_USER || 'postgres',
+      password: process.env.DB_PASSWORD,
       ssl: false
     })
-  : new Pool({
-      host: process.env.DB_HOST || 'localhost',
-      port: process.env.DB_PORT || 5432,
-      database: process.env.DB_NAME || 'pingrid',
-      user: process.env.DB_USER || 'postgres',
-      password: process.env.DB_PASSWORD || 'postgres',
-      ssl: false
-    });
+  : process.env.DATABASE_URL
+    ? new Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl: false
+      })
+    : new Pool({
+        host: 'localhost',
+        port: 5432,
+        database: 'pingrid',
+        user: 'postgres',
+        password: 'postgres',
+        ssl: false
+      });
+
+console.log('   Connection method:', useIndividualVars ? 'Individual DB_* variables' : (process.env.DATABASE_URL ? 'DATABASE_URL' : 'Default localhost'));
 
 // Migration files directory
 const migrationsDir = path.join(__dirname, 'src', 'shared', 'migrations');
