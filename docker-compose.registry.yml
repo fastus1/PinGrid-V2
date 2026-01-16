@@ -1,5 +1,8 @@
 version: '3.8'
 
+# Cette version utilise des images pré-buildées depuis GitHub Container Registry
+# Pour l'utiliser dans Portainer, remplacez "fastus1" par votre nom d'utilisateur GitHub
+
 services:
   # PostgreSQL Database
   postgres:
@@ -14,7 +17,6 @@ services:
       - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./backend/src/shared/migrations:/docker-entrypoint-initdb.d:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-postgres}"]
       interval: 10s
@@ -45,9 +47,7 @@ services:
 
   # Backend API
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/fastus1/pingrid-v2-backend:latest
     container_name: pingrid-backend
     restart: unless-stopped
     depends_on:
@@ -84,11 +84,7 @@ services:
 
   # Frontend Web App
   frontend:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-      args:
-        - VITE_API_URL=${VITE_API_URL:-http://localhost:5000}
+    image: ghcr.io/fastus1/pingrid-v2-frontend:latest
     container_name: pingrid-frontend
     restart: unless-stopped
     depends_on:
