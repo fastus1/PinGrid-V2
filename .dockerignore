@@ -1,0 +1,48 @@
+# Dependencies
+node_modules
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Environment files
+.env
+.env.*
+!.env.example
+!.env.production.example
+
+# Development files
+.git
+.gitignore
+.vscode
+.idea
+*.log
+
+# Test files
+coverage
+*.test.js
+*.spec.js
+
+# Documentation
+*.md
+!README.md
+docs
+
+# Temporary files
+tmp
+temp
+*.tmp
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts (for backend)
+dist
+build
+
+# Uploads (will be managed via volume)
+uploads
