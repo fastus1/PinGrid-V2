@@ -30,10 +30,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. A database connection error is logged but does not crash the Node.js process
   3. A transaction that fails to acquire a client does not throw a TypeError on release
   4. API responses are gzip/Brotli compressed (verifiable via Content-Encoding header)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD
+- [ ] 01-01-PLAN.md — Pool config, error handler fix, and compression middleware
+- [ ] 01-02-PLAN.md — Null-safe transaction patterns across all model files
 
 ### Phase 2: Database Index Optimization
 **Goal**: Database queries that traverse the page hierarchy use indexes instead of sequential scans
@@ -115,7 +116,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation Hardening | 0/TBD | Not started | - |
+| 1. Foundation Hardening | 0/2 | Planned | - |
 | 2. Database Index Optimization | 0/TBD | Not started | - |
 | 3. Aggregated Page Load | 0/TBD | Not started | - |
 | 4. Redis Removal | 0/TBD | Not started | - |
