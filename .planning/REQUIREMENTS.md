@@ -93,11 +93,6 @@
 | FOUND-03 | Phase 1 | Pending |
 | FOUND-04 | Phase 1 | Pending |
 | FOUND-05 | Phase 6 | Pending |
-| REDIS-01 | Phase 4 | Pending |
-| REDIS-02 | Phase 4 | Pending |
-| REDIS-03 | Phase 4 | Pending |
-| REDIS-04 | Phase 4 | Pending |
-| REDIS-05 | Phase 4 | Pending |
 | DBOPT-01 | Phase 2 | Pending |
 | DBOPT-02 | Phase 2 | Pending |
 | DBOPT-03 | Phase 2 | Pending |
@@ -106,6 +101,11 @@
 | LOAD-02 | Phase 3 | Pending |
 | LOAD-03 | Phase 3 | Pending |
 | LOAD-04 | Phase 3 | Pending |
+| REDIS-01 | Phase 4 | Pending |
+| REDIS-02 | Phase 4 | Pending |
+| REDIS-03 | Phase 4 | Pending |
+| REDIS-04 | Phase 4 | Pending |
+| REDIS-05 | Phase 4 | Pending |
 | FAVI-01 | Phase 5 | Pending |
 | FAVI-02 | Phase 5 | Pending |
 | FAVI-03 | Phase 5 | Pending |
@@ -124,10 +124,10 @@
 | PAGE-04 | Phase 6 | Pending |
 
 **Coverage:**
-- v1 requirements: 31 total
-- Mapped to phases: 31
+- v1 requirements: 34 total
+- Mapped to phases: 34
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 after initial definition*
+*Last updated: 2026-01-28 after roadmap creation*
