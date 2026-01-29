@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const compression = require('compression');
 require('dotenv').config();
 
 const errorHandler = require('./shared/middleware/errorHandler');
@@ -24,6 +25,9 @@ app.use(cors({
   origin: process.env.CORS_ORIGIN || 'http://localhost:3000',
   credentials: true
 }));
+
+// Response compression middleware
+app.use(compression());
 
 // Body parsing middleware
 app.use(express.json());
