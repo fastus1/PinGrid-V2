@@ -7,10 +7,10 @@
 
 ### Foundation (FOUND)
 
-- [ ] **FOUND-01**: Connection pool uses configurable max/min/maxUses/statement_timeout via env vars
-- [ ] **FOUND-02**: Pool error handler logs errors without crashing the process (remove process.exit)
-- [ ] **FOUND-03**: Transaction patterns guard client.release() against null client
-- [ ] **FOUND-04**: Response compression (gzip/Brotli) enabled via Express middleware
+- [x] **FOUND-01**: Connection pool uses configurable max/min/maxUses/statement_timeout via env vars
+- [x] **FOUND-02**: Pool error handler logs errors without crashing the process (remove process.exit)
+- [x] **FOUND-03**: Transaction patterns guard client.release() against null client
+- [x] **FOUND-04**: Response compression (gzip/Brotli) enabled via Express middleware
 - [ ] **FOUND-05**: Slow query logging for queries exceeding 100ms threshold
 
 ### Redis Removal (REDIS)
@@ -88,10 +88,10 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| FOUND-01 | Phase 1 | Pending |
-| FOUND-02 | Phase 1 | Pending |
-| FOUND-03 | Phase 1 | Pending |
-| FOUND-04 | Phase 1 | Pending |
+| FOUND-01 | Phase 1 | Complete |
+| FOUND-02 | Phase 1 | Complete |
+| FOUND-03 | Phase 1 | Complete |
+| FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 6 | Pending |
 | DBOPT-01 | Phase 2 | Pending |
 | DBOPT-02 | Phase 2 | Pending |
@@ -130,4 +130,4 @@
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-28 after roadmap creation*
+*Last updated: 2026-01-29 after Phase 1 completion*

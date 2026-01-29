@@ -12,7 +12,7 @@ This milestone makes PinGrid fast and scalable before the data grows. The work f
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Foundation Hardening** - Connection pool tuning, error handling fixes, and response compression
+- [x] **Phase 1: Foundation Hardening** - Connection pool tuning, error handling fixes, and response compression
 - [ ] **Phase 2: Database Index Optimization** - Strategic indexes for ownership JOINs and cache lookups
 - [ ] **Phase 3: Aggregated Page Load** - Single-query page load replaces N+1 waterfall
 - [ ] **Phase 4: Redis Removal** - Remove broken Redis dependency, simplify stack to PostgreSQL only
@@ -33,8 +33,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Pool config, error handler fix, and compression middleware
-- [ ] 01-02-PLAN.md — Null-safe transaction patterns across all model files
+- [x] 01-01-PLAN.md — Pool config, error handler fix, and compression middleware
+- [x] 01-02-PLAN.md — Null-safe transaction patterns across all model files
 
 ### Phase 2: Database Index Optimization
 **Goal**: Database queries that traverse the page hierarchy use indexes instead of sequential scans
@@ -116,7 +116,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation Hardening | 0/2 | Planned | - |
+| 1. Foundation Hardening | 2/2 | Complete | 2026-01-29 |
 | 2. Database Index Optimization | 0/TBD | Not started | - |
 | 3. Aggregated Page Load | 0/TBD | Not started | - |
 | 4. Redis Removal | 0/TBD | Not started | - |

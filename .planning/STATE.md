@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** Bookmark creation and page loading must feel instant, regardless of how many bookmarks exist.
-**Current focus:** Phase 1 — Foundation Hardening
+**Current focus:** Phase 2 — Database Index Optimization
 
 ## Current Position
 
-Phase: 1 of 6 (Foundation Hardening)
-Plan: 2 of 2 in current phase
-Status: Phase complete
-Last activity: 2026-01-29 — Completed 01-02-PLAN.md (null-safe transactions)
+Phase: 2 of 6 (Database Index Optimization)
+Plan: 0 of TBD in current phase
+Status: Ready to plan
+Last activity: 2026-01-29 — Phase 1 verified complete
 
 Progress: [██░░░░░░░░] ~17%
 
@@ -61,5 +61,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Completed 01-02-PLAN.md (Phase 1 complete)
+Stopped at: Phase 1 verified, ready for Phase 2
 Resume file: None
