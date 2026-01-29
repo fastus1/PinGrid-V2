@@ -156,9 +156,10 @@ class Page {
    */
   static async reorderPositions(userId, pageIds) {
     // Utiliser une transaction pour garantir l'atomicité
-    const client = await pool.connect();
+    let client;
 
     try {
+      client = await pool.connect();
       await client.query('BEGIN');
 
       // Mettre à jour chaque page avec sa nouvelle position
@@ -174,10 +175,18 @@ class Page {
       // Retourner les pages réordonnées
       return this.findAllByUser(userId);
     } catch (error) {
-      await client.query('ROLLBACK');
+      if (client) {
+        try {
+          await client.query('ROLLBACK');
+        } catch (rollbackError) {
+          console.error('Rollback failed:', rollbackError.message);
+        }
+      }
       throw error;
     } finally {
-      client.release();
+      if (client) {
+        client.release();
+      }
     }
   }
 
