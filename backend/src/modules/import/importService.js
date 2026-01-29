@@ -60,10 +60,11 @@ class ImportService {
    * @returns {Promise<object>} - {success: number, skipped: number, failed: number}
    */
   async importBookmarksToGroup(userId, groupId, bookmarks) {
-    const client = await pool.connect();
+    let client;
     let success = 0, skipped = 0, failed = 0;
 
     try {
+      client = await pool.connect();
       await client.query('BEGIN');
 
       for (const bm of bookmarks) {
@@ -107,11 +108,19 @@ class ImportService {
 
       return { success, skipped, failed };
     } catch (error) {
-      await client.query('ROLLBACK');
+      if (client) {
+        try {
+          await client.query('ROLLBACK');
+        } catch (rollbackError) {
+          console.error('Rollback failed:', rollbackError.message);
+        }
+      }
       console.error('❌ Import transaction failed:', error.message);
       throw new Error('Import failed. Transaction rolled back.');
     } finally {
-      client.release();
+      if (client) {
+        client.release();
+      }
     }
   }
 

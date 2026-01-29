@@ -177,9 +177,10 @@ class Bookmark {
    * @returns {Promise<Array>} Liste des bookmarks de cette colonne avec nouvelles positions
    */
   static async reorderColumn(groupId, columnNumber, bookmarkIds) {
-    const client = await pool.connect();
+    let client;
 
     try {
+      client = await pool.connect();
       await client.query('BEGIN');
 
       // Mettre à jour chaque position dans cette colonne
@@ -203,10 +204,18 @@ class Bookmark {
 
       return result.rows;
     } catch (error) {
-      await client.query('ROLLBACK');
+      if (client) {
+        try {
+          await client.query('ROLLBACK');
+        } catch (rollbackError) {
+          console.error('Rollback failed:', rollbackError.message);
+        }
+      }
       throw error;
     } finally {
-      client.release();
+      if (client) {
+        client.release();
+      }
     }
   }
 
@@ -218,9 +227,10 @@ class Bookmark {
    * @returns {Promise<Array>} Liste des bookmarks avec nouvelles positions
    */
   static async reorderPositions(groupId, bookmarkIds) {
-    const client = await pool.connect();
+    let client;
 
     try {
+      client = await pool.connect();
       await client.query('BEGIN');
 
       // Mettre à jour chaque position
@@ -244,10 +254,18 @@ class Bookmark {
 
       return result.rows;
     } catch (error) {
-      await client.query('ROLLBACK');
+      if (client) {
+        try {
+          await client.query('ROLLBACK');
+        } catch (rollbackError) {
+          console.error('Rollback failed:', rollbackError.message);
+        }
+      }
       throw error;
     } finally {
-      client.release();
+      if (client) {
+        client.release();
+      }
     }
   }
 
