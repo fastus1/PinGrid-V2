@@ -13,7 +13,7 @@ This milestone makes PinGrid fast and scalable before the data grows. The work f
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation Hardening** - Connection pool tuning, error handling fixes, and response compression
-- [ ] **Phase 2: Database Index Optimization** - Strategic indexes for ownership JOINs and cache lookups
+- [x] **Phase 2: Database Index Optimization** - Strategic indexes for ownership JOINs and cache lookups
 - [ ] **Phase 3: Aggregated Page Load** - Single-query page load replaces N+1 waterfall
 - [ ] **Phase 4: Redis Removal** - Remove broken Redis dependency, simplify stack to PostgreSQL only
 - [ ] **Phase 5: Async Favicon Fetching + Cache** - Background favicon fetch with PostgreSQL-backed cache
@@ -48,7 +48,7 @@ Plans:
 **Plans**: 1 plan
 
 Plans:
-- [ ] 02-01-PLAN.md — Add ownership indexes (sections.page_id, groups.section_id) and remove redundant idx_bookmarks_group_position
+- [x] 02-01-PLAN.md — Add ownership indexes (sections.page_id, groups.section_id) and remove redundant idx_bookmarks_group_position
 
 ### Phase 3: Aggregated Page Load
 **Goal**: A full page with all its sections, groups, and bookmarks loads in a single API call instead of 20+ waterfall requests
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation Hardening | 2/2 | Complete | 2026-01-29 |
-| 2. Database Index Optimization | 0/1 | Not started | - |
+| 2. Database Index Optimization | 1/1 | Complete | 2026-01-29 |
 | 3. Aggregated Page Load | 0/TBD | Not started | - |
 | 4. Redis Removal | 0/TBD | Not started | - |
 | 5. Async Favicon + Cache | 0/TBD | Not started | - |

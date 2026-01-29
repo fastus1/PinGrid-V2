@@ -23,10 +23,10 @@
 
 ### Database Optimization (DBOPT)
 
-- [ ] **DBOPT-01**: Composite indexes added for ownership verification JOINs (sections, groups, bookmarks)
-- [ ] **DBOPT-02**: Index on icons_cache(domain, last_checked_at) for cache lookups with TTL
-- [ ] **DBOPT-03**: Audit and remove redundant indexes (e.g., idx_bookmarks_group_position superseded by idx_bookmarks_group_column)
-- [ ] **DBOPT-04**: All new indexes created with CONCURRENTLY to avoid write locks
+- [x] **DBOPT-01**: Composite indexes added for ownership verification JOINs (sections, groups, bookmarks)
+- [x] **DBOPT-02**: Index on icons_cache(domain, last_checked_at) for cache lookups with TTL
+- [x] **DBOPT-03**: Audit and remove redundant indexes (e.g., idx_bookmarks_group_position superseded by idx_bookmarks_group_column)
+- [x] **DBOPT-04**: All new indexes created with CONCURRENTLY to avoid write locks
 
 ### Page Load Optimization (LOAD)
 
@@ -93,10 +93,10 @@
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | FOUND-05 | Phase 6 | Pending |
-| DBOPT-01 | Phase 2 | Pending |
-| DBOPT-02 | Phase 2 | Pending |
-| DBOPT-03 | Phase 2 | Pending |
-| DBOPT-04 | Phase 2 | Pending |
+| DBOPT-01 | Phase 2 | Complete |
+| DBOPT-02 | Phase 2 | Complete |
+| DBOPT-03 | Phase 2 | Complete |
+| DBOPT-04 | Phase 2 | Complete |
 | LOAD-01 | Phase 3 | Pending |
 | LOAD-02 | Phase 3 | Pending |
 | LOAD-03 | Phase 3 | Pending |
@@ -130,4 +130,4 @@
 
 ---
 *Requirements defined: 2026-01-28*
-*Last updated: 2026-01-29 after Phase 1 completion*
+*Last updated: 2026-01-29 after Phase 2 completion*
