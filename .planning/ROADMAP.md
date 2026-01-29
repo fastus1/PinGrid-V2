@@ -45,10 +45,10 @@ Plans:
   2. Icons cache lookups by domain with TTL filtering use an index (verifiable via EXPLAIN)
   3. No redundant overlapping indexes exist on the bookmarks table (audit complete)
   4. All new indexes were created with CONCURRENTLY (no table locks during creation)
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] 02-01: TBD
+- [ ] 02-01-PLAN.md — Add ownership indexes (sections.page_id, groups.section_id) and remove redundant idx_bookmarks_group_position
 
 ### Phase 3: Aggregated Page Load
 **Goal**: A full page with all its sections, groups, and bookmarks loads in a single API call instead of 20+ waterfall requests
@@ -117,7 +117,7 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation Hardening | 2/2 | Complete | 2026-01-29 |
-| 2. Database Index Optimization | 0/TBD | Not started | - |
+| 2. Database Index Optimization | 0/1 | Not started | - |
 | 3. Aggregated Page Load | 0/TBD | Not started | - |
 | 4. Redis Removal | 0/TBD | Not started | - |
 | 5. Async Favicon + Cache | 0/TBD | Not started | - |
