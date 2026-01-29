@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-01-28)
 
 **Core value:** Bookmark creation and page loading must feel instant, regardless of how many bookmarks exist.
-**Current focus:** Phase 2 — Database Index Optimization
+**Current focus:** Phase 2 — Database Index Optimization (complete)
 
 ## Current Position
 
 Phase: 2 of 6 (Database Index Optimization)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-01-29 — Phase 1 verified complete
+Plan: 1 of 1 in current phase
+Status: Phase complete
+Last activity: 2026-01-29 — Completed 02-01-PLAN.md
 
-Progress: [██░░░░░░░░] ~17%
+Progress: [███░░░░░░░] ~33%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: 5 min
-- Total execution time: 0.17 hours
+- Total plans completed: 3
+- Average duration: 4 min
+- Total execution time: 0.18 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-foundation-hardening | 2 | 10 min | 5 min |
+| 02-database-index-optimization | 1 | 1 min | 1 min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (8 min), 01-02 (2 min)
-- Trend: Fast execution on focused fixes
+- Last 5 plans: 01-01 (8 min), 01-02 (2 min), 02-01 (1 min)
+- Trend: Fast execution on focused migration tasks
 
 *Updated after each plan completion*
 
@@ -49,6 +50,8 @@ Recent decisions affecting current work:
 - 01-01: Compression uses defaults (1KB threshold, gzip/Brotli auto)
 - 01-02: Use let client; before try, client = await pool.connect() inside try for null-safe transactions
 - 01-02: Wrap ROLLBACK in try/catch to prevent masking original business logic errors
+- 02-01: Single-column indexes for FK JOINs instead of relying on composite indexes
+- 02-01: Leftmost prefix rule makes idx_bookmarks_group_column cover all (group_id, position) queries
 
 ### Pending Todos
 
@@ -61,5 +64,5 @@ None yet.
 ## Session Continuity
 
 Last session: 2026-01-29
-Stopped at: Phase 1 verified, ready for Phase 2
+Stopped at: Completed 02-01-PLAN.md (Phase 2 complete)
 Resume file: None
